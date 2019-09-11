@@ -1,0 +1,12 @@
+<div class="right" *ngIf="posts">
+
+  <h3>Posts</h3>
+  <ul>
+    <li *ngFor="let post of posts | async" routerLink="/details/{{post.id}}">
+      <div><strong>Id</strong>: {{post.id}}</div>
+      <div><strong>Title</strong>: {{post.title}}</div>
+      <div><strong>Body</strong>: <br> {{ post.body }}</div>
+    </li>
+  </ul>
+
+</div>

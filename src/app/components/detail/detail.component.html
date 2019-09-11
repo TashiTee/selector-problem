@@ -1,5 +1,5 @@
 <h2>------{{id}}</h2>
-<div *ngIf="post">
+<div *ngIf="post$ | async as post">
   <ul>
     <li>
       <div><strong>Id</strong>: {{post.id}}</div>

@@ -5,7 +5,10 @@ export interface AppState {
     readonly post: Post[];
 }
 
+// defines structure
 export interface PostState extends EntityState<Post> { }
+
+
 
 export const PostAdapter = createEntityAdapter<Post>({
     selectId: (post: Post) => post.id
@@ -16,3 +19,5 @@ export const PostInitialState: PostState = PostAdapter.getInitialState({
     // title: 'Post 1',
     // body: 'Post Body 1'
 });
+
+

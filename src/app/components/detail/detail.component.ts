@@ -18,14 +18,13 @@ import { PostService }  from '../../services/post.service';
 })
 export class DetailComponent implements OnInit {
 
-  post: Observable<Post>;
+  post$: Observable<Post>;
   id: number;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private store: Store<AppState>,
-    private postService: PostService,
   ) { }
 
   ngOnInit() {
@@ -35,7 +34,7 @@ export class DetailComponent implements OnInit {
   getPost(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.id = id;
-    this.post = this.store.select(selectPost(id))
+    this.post$ = this.store.select(selectPost(id))
 
   }
   goBack(): void {

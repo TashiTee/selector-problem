@@ -15,18 +15,20 @@ const { selectEntities, selectAll } = PostAdapter.getSelectors(
 export const selectPostsAll = selectAll;
 export const selectPostEntities = selectEntities;
 
-// export const selectPost = (id) => createSelector(selectPostEntities,
-//     selectPosts => selectPosts[id]);
+// export const selectPost = (id) =>  selectEntities[id];
 
+export const selectPost = (id) => createSelector(selectPostEntities,
+    selectPosts => selectPosts[id]);
 
-    export const selectPost = (id: number) => {
-      createSelector(
-        selectAll,
-        (data: Post[]) => {
-          if (data.length > 0) {
-            return data.find(info => info.userId === id);
-          }
-          return null;
-        }
-      );
-    };
+    // export const selectPost = (id: number) => {
+    //   createSelector(
+    //     selectAll,
+    //     (data: Post[]) => {
+    //       if (data.length > 0) {
+    //         return data.find(info => info.userId === id);
+    //       }
+    //       return null;
+    //     }
+    //   );
+    // };
+
